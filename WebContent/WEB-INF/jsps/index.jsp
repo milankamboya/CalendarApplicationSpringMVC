@@ -10,13 +10,8 @@
 <title>Welcome to Calendar Application</title>
 </head>
 <body>
-<h3> hello </h3>
 
-<sql:query var="rs" dataSource="jdbc/Calendar">
-select id, name, password, email from accounts
-</sql:query>
-
-<c:forEach var="row" items="${rs.rows}">
+<c:forEach var="row" items="${accounts}">
     ID: ${row.id}<br/>
     Name: ${row.name}<br/>
     Password: ${row.password}<br/>
