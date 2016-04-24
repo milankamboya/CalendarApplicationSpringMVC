@@ -21,4 +21,8 @@ public class EventsService {
 	public List<Event> getCurrent(){
 		return eventsDAO.getEvents();
 	}
+	
+	public boolean createEvent(Event event){
+		return eventsDAO.create(event);
+	}
 }

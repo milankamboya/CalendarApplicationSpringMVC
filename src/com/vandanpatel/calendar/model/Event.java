@@ -1,26 +1,56 @@
 package com.vandanpatel.calendar.model;
 
-import java.time.LocalDate;
+import java.util.Date;
+
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class Event {
-	
-	private int id;
+
+	private int event_id;
+
+	@NotNull
+	@Size(min = 4, max = 20, message = "Name must be between 4 and 20 characters")
 	private String name;
+
+	@NotNull
+	@Size(min = 4, max = 50, message = "Street must be between 4 and 50 characters")
 	private String street;
+
+	@NotNull
+	@Size(min = 2, max = 20, message = "City must be between 2 and 20 characters")
 	private String city;
+
+	@NotNull
+	@Size(min = 2, max = 20, message = "State must be between 2 and 20 characters")
 	private String state;
-	private LocalDate time;
 	
-	public Event(){
-		
-	}
-	
-	public int getId() {
-		return id;
+	@NotNull
+	@Size(min = 5, max = 10, message = "Zip Code must be between 5 and 10 characters")
+	private String zipcode;
+
+	@NotNull(message = "Date can not be empty")
+	@Future(message = "Date must be in future")
+	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm aa")
+	private Date date;
+
+	public String getZipcode() {
+		return zipcode;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
+	}
+
+	public int getEvent_id() {
+		return event_id;
+	}
+
+	public void setEvent_id(int event_id) {
+		this.event_id = event_id;
 	}
 
 	public String getName() {
@@ -55,30 +85,34 @@ public class Event {
 		this.state = state;
 	}
 
-	public LocalDate getTime() {
-		return time;
+	public Date getDate() {
+		return date;
 	}
 
-	public void setTime(LocalDate time) {
-		this.time = time;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
-	public Event(String name, String street, String city, String state, LocalDate time) {
-		super();
+	public Event(String name, String street, String city, String state, String zipcode, Date date) {
 		this.name = name;
 		this.street = street;
 		this.city = city;
 		this.state = state;
-		this.time = time;
+		this.zipcode = zipcode;
+		this.date = date;
 	}
 
-	public Event(int id, String name, String street, String city, String state, LocalDate time) {
-		super();
-		this.id = id;
+	public Event(int event_id, String name, String street, String city, String state, String zipcode, Date date) {
+		this.event_id = event_id;
 		this.name = name;
 		this.street = street;
 		this.city = city;
 		this.state = state;
-		this.time = time;
+		this.zipcode = zipcode;
+		this.date = date;
+	}
+
+	public Event() {
+
 	}
 }
