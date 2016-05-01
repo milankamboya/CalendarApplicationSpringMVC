@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-EVENT CREATED! <a href="${pageContext.request.contextPath}/events"> Click here to view current events</a>
+ Access Denied!
 </body>
 </html>

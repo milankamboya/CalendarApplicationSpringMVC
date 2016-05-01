@@ -13,27 +13,27 @@ public class Event {
 	private int event_id;
 
 	@NotNull
-	@Size(min = 4, max = 20, message = "Name must be between 4 and 20 characters")
+	@Size(min = 4, max = 20)
 	private String name;
 
 	@NotNull
-	@Size(min = 4, max = 50, message = "Street must be between 4 and 50 characters")
+	@Size(min = 4, max = 50)
 	private String street;
 
 	@NotNull
-	@Size(min = 2, max = 20, message = "City must be between 2 and 20 characters")
+	@Size(min = 2, max = 20)
 	private String city;
 
 	@NotNull
-	@Size(min = 2, max = 20, message = "State must be between 2 and 20 characters")
+	@Size(min = 2, max = 20)
 	private String state;
 	
 	@NotNull
-	@Size(min = 5, max = 10, message = "Zip Code must be between 5 and 10 characters")
+	@Size(min = 5, max = 10)
 	private String zipcode;
 
-	@NotNull(message = "Date can not be empty")
-	@Future(message = "Date must be in future")
+	@NotNull
+	@Future
 	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm aa")
 	private Date date;
 

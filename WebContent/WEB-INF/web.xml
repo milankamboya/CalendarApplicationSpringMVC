@@ -18,7 +18,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>calendar</servlet-name>
-    <url-pattern>/</url-pattern>
+    <url-pattern>/</url-pattern> 
   </servlet-mapping>
   <description>Spring Database</description>
   <resource-ref>
@@ -47,4 +47,5 @@
     <filter-name>springSecurityFilterChain</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+  <session-config><session-timeout>20</session-timeout></session-config>
 </web-app>

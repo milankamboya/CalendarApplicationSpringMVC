@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Logged Out</title>
 </head>
 <body>
-EVENT CREATED! <a href="${pageContext.request.contextPath}/events"> Click here to view current events</a>
+	You have logged out.
 </body>
 </html>

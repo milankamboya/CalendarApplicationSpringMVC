@@ -30,7 +30,7 @@ public class EventController {
 
 
 
-	@RequestMapping("/")
+	@RequestMapping(value = {"/","/events"})
 	public String showEvents(Model model)
 	{
 		List<Event> events = eventsService.getCurrent();
@@ -59,4 +59,5 @@ public class EventController {
 		eventsService.createEvent(event);
 		return "eventCreated";
 	}
+
 }

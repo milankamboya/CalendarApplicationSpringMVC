@@ -1,5 +1,7 @@
 package com.vandanpatel.calendar.controllers;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,16 @@ public class LoginController {
 	public String showLogin() {
 		return "login";
 	}
+	
+	@RequestMapping("/denied")
+	public String showDenied() {
+		return "denied";
+	}
+	
+	@RequestMapping("/logggedout")
+	public String showLoggedOut() {
+		return "loggedout";
+	}
 
 	@RequestMapping("/newAccount")
 	public String showNewAccount(Model model) {
@@ -44,22 +56,32 @@ public class LoginController {
 			return "newAccount";
 		}
 
-		user.setAuthority("user");
+		user.setAuthority("ROLE_USER");
 		user.setEnabled(true);
 		
 		if(usersService.exists(user.getUsername())){
-			result.rejectValue("username", "DuplicateKey.user.username", "This username already exists!");
+			result.rejectValue("username", "DuplicateKey.user.username");
 			return "newAccount";
 		}
 
 		try {
 			usersService.create(user);
 		} catch (DuplicateKeyException e) {
-			result.rejectValue("username", "DuplicateKey.user.username", "This username already exists!");
+			result.rejectValue("username", "DuplicateKey.user.username");
 			return "newAccount";
 		}
 
 		return "accountCreated";
+	}
+	
+	@RequestMapping("/admin")
+	public String showAdmin(Model model){
+		
+		List<User> users = usersService.getAllUsers();
+		
+		model.addAttribute("users", users);
+		
+		return "admin";
 	}
 
 }
