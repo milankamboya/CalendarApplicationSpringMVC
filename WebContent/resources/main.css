@@ -1,9 +1,10 @@
 @CHARSET "US-ASCII";
 
 .formtable {
-	width: 600px;
+	width: 100%;
 	padding: 10px;
-	border: 1px solid blue;
+	text-align: left;
+	border: 1px solid black;
 }
 
 input[type=text] {
@@ -43,10 +44,30 @@ textarea {
 }
 
 table.events {
-	padding: 20px;
 	border: 1px solid gray;
+	width: 960px;
+	margin: 0 auto;
+	line-height: 25px;
+}
+
+h3, #event, #details, #loginForm{
+	width: 960px;
+	margin: 0 auto;
+	
+}
+
+.container{
+	//background-color: white;
 }
 
 p.error {
 	font-size: medium;
+}
+
+.events {
+	text-align: center;
+}
+body{
+	font-family: 'Arial', sans-serif;
+	background-color: white;
 }

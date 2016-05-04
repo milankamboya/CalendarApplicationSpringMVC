@@ -27,4 +27,28 @@ public class EventsService {
 	public boolean createEvent(Event event){
 		return eventsDAO.create(event);
 	}
+
+	public List<Event> yourEvents(String username) {
+		
+		if(username == null){
+			return null;
+		}
+		
+		return eventsDAO.personalEvents(username);
+	}
+
+	public Event getEvent(int event_id) {
+		
+		return eventsDAO.getEvent(event_id);
+	}
+
+	public boolean updateYourEvent(Event event) {
+		
+		return eventsDAO.update(event);
+	}
+
+	public boolean deleteYourEvent(int sanitized_id) {
+		return eventsDAO.delete(sanitized_id);
+	}
+	
 }

@@ -3,6 +3,7 @@
 <%@ taglib prefix="joda" uri="http://www.joda.org/joda/time/tags"%>
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ include file="/WEB-INF/jspf/header.jspf" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -60,7 +61,7 @@
 </head>
 <body>
 	
-	<h2>Create New Account</h2>
+	<h3>Create New Account</h3>
 	<sf:form id="details" method="post"
 		action="${pageContext.request.contextPath}/createAccount"
 		commandName="user">
@@ -68,6 +69,14 @@
 			<tr>
 				<td class="label">Userame :</td>
 				<td><sf:input class="control" path="username" name="username"
+						type="text" /><br />
+				<div class="error">
+						<sf:errors path="username"></sf:errors>
+					</div></td>
+			</tr>
+			<tr>
+				<td class="label"> Name :</td>
+				<td><sf:input class="control" path="name" name="name"
 						type="text" /><br />
 				<div class="error">
 						<sf:errors path="username"></sf:errors>

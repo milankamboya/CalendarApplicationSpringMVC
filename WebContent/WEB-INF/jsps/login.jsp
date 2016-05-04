@@ -11,13 +11,13 @@
 
 </head>
 <body onload='document.f.j_username.focus();'>
-	<h3>Welcome to Registration Page</h3>
+	<h3>Welcome to LogIn Page</h3>
 	
-	<c:if test="${param.error != null}">
+	<h3><c:if test="${param.error != null}">
 		<p class="error"> Login Failed. Check that your username and password are correct. </p>
 	</c:if>
-	
-	<form name='f' action='${pageContext.request.contextPath}/login' method='POST'>
+	</h3>
+	<form id="loginForm" name='f' action='${pageContext.request.contextPath}/login' method='POST'>
 		<table class="formtable">
 			<tr>
 				<td>User:</td>
@@ -38,6 +38,6 @@
 		</table>
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> 
 	</form>
-	<p> <a href='<c:url value="/newAccount"></c:url>'> Create New Account </a> </p>
+	<h3><a href='<c:url value="/newAccount"></c:url>'>Create New Account</a></h3>
 </body>
 </html>

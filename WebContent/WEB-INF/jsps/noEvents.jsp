@@ -4,12 +4,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link href="${pageContext.request.contextPath}/static/main.css"
-	rel="stylesheet" type="text/css" />
+<link href="${pageContext.request.contextPath}/static/main.css" rel="stylesheet" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Account Created</title>
+<title>No Events</title>
 </head>
 <body>
-<h3> Congratulations! Your account has been created. </h3>
+<h3> This user does not have any events right now.</h3>
 </body>
 </html>

@@ -14,7 +14,7 @@ public class Event {
 
 	@NotNull
 	@Size(min = 4, max = 20)
-	private String name;
+	private String event_name;
 
 	@NotNull
 	@Size(min = 4, max = 50)
@@ -34,8 +34,10 @@ public class Event {
 
 	@NotNull
 	@Future
-	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm aa")
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date date;
+	
+	private User user;
 
 	public String getZipcode() {
 		return zipcode;
@@ -53,12 +55,12 @@ public class Event {
 		this.event_id = event_id;
 	}
 
-	public String getName() {
-		return name;
+	public String getEvent_name() {
+		return event_name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setEvent_name(String event_name) {
+		this.event_name = event_name;
 	}
 
 	public String getStreet() {
@@ -92,9 +94,25 @@ public class Event {
 	public void setDate(Date date) {
 		this.date = date;
 	}
+	
+	public User getUser() {
+		return user;
+	}
 
-	public Event(String name, String street, String city, String state, String zipcode, Date date) {
-		this.name = name;
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public String getUsername(){
+		return user.getUsername();
+	}
+	
+
+
+
+	public Event(User user ,String event_name, String street, String city, String state, String zipcode, Date date) {
+		this.user = user;
+		this.event_name = event_name;
 		this.street = street;
 		this.city = city;
 		this.state = state;
@@ -102,17 +120,24 @@ public class Event {
 		this.date = date;
 	}
 
-	public Event(int event_id, String name, String street, String city, String state, String zipcode, Date date) {
+	public Event(int event_id, User user, String event_name, String street, String city, String state, String zipcode, Date date) {
 		this.event_id = event_id;
-		this.name = name;
+		this.user = user;
+		this.event_name = event_name;
 		this.street = street;
 		this.city = city;
 		this.state = state;
 		this.zipcode = zipcode;
 		this.date = date;
+	}
+
+	@Override
+	public String toString() {
+		return "Event [event_id=" + event_id + ", event_name=" + event_name + ", street=" + street + ", city=" + city
+				+ ", state=" + state + ", zipcode=" + zipcode + ", date=" + date + ", user=" + user + "]";
 	}
 
 	public Event() {
-
+		this.user = new User();
 	}
 }

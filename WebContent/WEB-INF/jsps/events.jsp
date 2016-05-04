@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@ include file="/WEB-INF/jspf/header.jspf" %>  
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
@@ -14,12 +14,17 @@
 <title>Events</title>
 </head>
 <body>
-<table class="events">
-<tr><td>Name</td><td>Street</td><td>City</td><td>State</td><td>Date</td></tr>
+<table class="events wrapper">
+<thead>
+<tr><th>Creator</th><th>Name</th><th>Street</th><th>City</th><th>State</th><th>Date</th></tr>
+</thead>
+<tbody>
 <c:forEach var="event" items="${events}">
 
 <tr>
-	<td><c:out value="${event.name}"></c:out> </td>
+	<td><c:out value="${event.user.name}"></c:out> </td>
+	
+	<td><c:out value="${event.event_name}"></c:out> </td>
 	
 	<td><c:out value="${event.street}"></c:out> </td>
 	
@@ -31,22 +36,7 @@
 </tr>
 
 </c:forEach>
+</tbody>
 </table>
-<p><a href="${pageContext.request.contextPath}/createEvent">Create Event</a></p>
-<sec:authorize access="!isAuthenticated()">
-<p><a href='<c:url value="/login"></c:url>'>Log In</a></p>
-</sec:authorize>
-
-<sec:authorize access="isAuthenticated()">
-	<c:url var="logoutUrl" value="/logout" />
-	<form action="${logoutUrl}" method="post">
-		<input type="submit" value="Logout" /> <input type="hidden"
-			name="${_csrf.parameterName}" value="${_csrf.token}" />
-	</form>
-</sec:authorize>	
-
-<sec:authorize access = "hasRole('ROLE_ADMIN')">
-<p><a href='<c:url value="/admin"></c:url>'>ADMIN</a></p>
-</sec:authorize>
 </body>
 </html>

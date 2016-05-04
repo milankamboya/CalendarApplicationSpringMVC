@@ -34,4 +34,19 @@ public class UsersService {
 		return userDAO.getAllUsers();
 	}
 
+	public User getUser(int sanitized_id) {
+		
+		return userDAO.getUser(sanitized_id);
+	}
+
+	public boolean update(User user) {
+		
+		return userDAO.update(user);
+	}
+
+	public boolean deleteUser(int sanitized_id) {
+		
+		return userDAO.delete(sanitized_id);
+	}
+
 }
